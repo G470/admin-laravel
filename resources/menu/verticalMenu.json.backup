@@ -1,0 +1,321 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Inlando"
+        },
+        {
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons ti ti-dashboard",
+            "url": "/dashboard",
+            "slug": "dashboard",
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "Vendor Bereich",
+            "icon": "menu-icon tf-icons ti ti-building-store",
+            "slug": "vendor",
+            "roles": [
+                "vendor",
+                "admin"
+            ],
+            "submenu": [
+                {
+                    "url": "vendor/dashboard",
+                    "name": "Dashboard",
+                    "slug": "vendor-dashboard",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "name": "Vermietungsobjekte",
+                    "slug": "vendor-rentals",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ],
+                    "submenu": [
+                        {
+                            "url": "vendor/rentals",
+                            "name": "Objektliste",
+                            "slug": "vendor-rentals",
+                            "roles": [
+                                "vendor",
+                                "admin"
+                            ]
+                        },
+                        {
+                            "url": "vendor/rental",
+                            "name": "Neues Objekt",
+                            "slug": "vendor-rental-create",
+                            "roles": [
+                                "vendor",
+                                "admin"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "url": "vendor/statistics",
+                    "name": "Statistiken",
+                    "slug": "vendor-statistics",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "vendor/messages",
+                    "name": "Nachrichten",
+                    "slug": "vendor-messages",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "vendor/reviews",
+                    "name": "Bewertungen & Rezensionen",
+                    "slug": "vendor-reviews",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "name": "Standorte",
+                    "slug": "vendor-locations",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ],
+                    "submenu": [
+                        {
+                            "url": "vendor/standorte",
+                            "name": "Standortliste",
+                            "slug": "vendor-locations",
+                            "roles": [
+                                "vendor",
+                                "admin"
+                            ]
+                        },
+                        {
+                            "url": "vendor/oeffnungszeiten",
+                            "name": "Öffnungszeiten",
+                            "slug": "vendor-openings",
+                            "roles": [
+                                "vendor",
+                                "admin"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "url": "vendor/rechnungen",
+                    "name": "Rechnungen",
+                    "slug": "vendor-bills",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "vendor/credits",
+                    "name": "Guthaben",
+                    "slug": "vendor-credits",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "vendor/rental-pushes",
+                    "name": "Artikel-Push",
+                    "slug": "vendor-rental-pushes",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "vendor/persoenliche-daten",
+                    "name": "Persönliche Daten",
+                    "slug": "vendor-profile",
+                    "roles": [
+                        "vendor",
+                        "admin"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Mein Bereich",
+            "icon": "menu-icon tf-icons ti ti-user",
+            "slug": "user",
+            "roles": [
+                "user",
+                "vendor",
+                "admin"
+            ],
+            "submenu": [
+                {
+                    "url": "user/profile",
+                    "name": "Mein Profil",
+                    "slug": "user-profile",
+                    "roles": [
+                        "user",
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "user/bookings",
+                    "name": "Meine Buchungen",
+                    "slug": "user-bookings",
+                    "roles": [
+                        "user",
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "user/favorites",
+                    "name": "Favoriten",
+                    "slug": "user-favorites",
+                    "roles": [
+                        "user",
+                        "vendor",
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "user/settings",
+                    "name": "Einstellungen",
+                    "slug": "user-settings",
+                    "roles": [
+                        "user",
+                        "vendor",
+                        "admin"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Admin Bereich",
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "admin",
+            "roles": [
+                "admin"
+            ],
+            "submenu": [
+                {
+                    "url": "admin/dashboard",
+                    "name": "Dashboard",
+                    "slug": "admin-dashboard",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/users",
+                    "name": "Benutzerverwaltung",
+                    "slug": "admin-users",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/rentals",
+                    "name": "Vermietungsobjekte",
+                    "slug": "admin-rentals",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/abonnementplaene",
+                    "name": "Abonnementpläne",
+                    "slug": "admin-subscription-plans",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/kategorien",
+                    "name": "Kategorien",
+                    "slug": "categories",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/staedte-seo",
+                    "name": "Städte SEO",
+                    "slug": "admin-cities-seo",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/formulare",
+                    "name": "Formulare",
+                    "slug": "admin-forms",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/email-templates",
+                    "name": "E-Mail Templates",
+                    "slug": "admin-email-templates",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/homepage",
+                    "name": "Homepage Einstellungen",
+                    "slug": "admin-homepage",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/einstellungen",
+                    "name": "Einstellungen",
+                    "slug": "admin-settings",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/badwords",
+                    "name": "Badwords",
+                    "slug": "admin-badwords",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/bills",
+                    "name": "Rechnungen",
+                    "slug": "admin-bills",
+                    "roles": [
+                        "admin"
+                    ]
+                },
+                {
+                    "url": "admin/vendor-earnings",
+                    "name": "Vendor Earnings Overview",
+                    "slug": "admin-vendor-earnings",
+                    "roles": [
+                        "admin"
+                    ]
+                }
+            ]
+        }
+    ]
+}

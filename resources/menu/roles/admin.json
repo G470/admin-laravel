@@ -1,0 +1,231 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Inlando Admin"
+        },
+        {
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons ti ti-dashboard",
+            "url": "/admin/dashboard",
+            "slug": "admin-dashboard"
+        },
+        {
+            "name": "Content Management",
+            "icon": "menu-icon tf-icons ti ti-layout-grid",
+            "slug": "admin-content",
+            "submenu": [
+                {
+                    "url": "admin/rentals",
+                    "name": "Vermietungsobjekte",
+                    "slug": "admin-rentals",
+                    "icon": "ti ti-package"
+                },
+                {
+                    "url": "admin/categories",
+                    "name": "Kategorien",
+                    "slug": "admin-categories",
+                    "icon": "ti ti-category"
+                },
+                {
+                    "url": "admin/rental-field-templates",
+                    "name": "Dynamische Felder",
+                    "slug": "admin-rental-field-templates",
+                    "icon": "ti ti-template"
+                },
+                {
+                    "url": "admin/locations",
+                    "name": "Standorte",
+                    "slug": "admin-locations",
+                    "icon": "ti ti-map-pin"
+                },
+                {
+                    "url": "admin/reviews",
+                    "name": "Bewertungen",
+                    "slug": "admin-reviews",
+                    "icon": "ti ti-star"
+                }
+            ]
+        },
+        {
+            "name": "SEO & Marketing",
+            "icon": "menu-icon tf-icons ti ti-seo",
+            "slug": "admin-seo",
+            "submenu": [
+                {
+                    "url": "admin/staedte-seo",
+                    "name": "Location SEO",
+                    "slug": "admin-cities-seo",
+                    "icon": "ti ti-map-search"
+                },
+                {
+                    "url": "admin/homepage",
+                    "name": "Homepage Einstellungen",
+                    "slug": "admin-homepage",
+                    "icon": "ti ti-home"
+                },
+                {
+                    "url": "kategorien",
+                    "name": "Kategorien-Seite",
+                    "slug": "categories-page",
+                    "icon": "ti ti-category"
+                },
+                {
+                    "url": "admin/credit-packages",
+                    "name": "Credit-Pakete",
+                    "slug": "admin-credit-packages",
+                    "icon": "ti ti-coins"
+                },
+                {
+                    "url": "admin/credit-analytics",
+                    "name": "Credit-Berichte",
+                    "slug": "admin-credit-analytics",
+                    "icon": "ti ti-chart-line"
+                }
+            ]
+        },
+        {
+            "name": "Benutzerverwaltung",
+            "icon": "menu-icon tf-icons ti ti-users",
+            "slug": "admin-users",
+            "submenu": [
+                {
+                    "url": "admin/users",
+                    "name": "Benutzerliste",
+                    "slug": "admin-users",
+                    "icon": "ti ti-user-circle"
+                },
+                {
+                    "url": "admin/users/create",
+                    "name": "Neuer Benutzer",
+                    "slug": "admin-user-create",
+                    "icon": "ti ti-user-plus"
+                },
+                {
+                    "name": "Rollen & Berechtigungen",
+                    "slug": "admin-roles-permissions",
+                    "icon": "ti ti-shield-check",
+                    "submenu": [
+                        {
+                            "url": "admin/roles",
+                            "name": "Rollen",
+                            "slug": "admin-roles",
+                            "icon": "ti ti-users"
+                        },
+                        {
+                            "url": "admin/permissions",
+                            "name": "Berechtigungen",
+                            "slug": "admin-permissions",
+                            "icon": "ti ti-key"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Sicherheit",
+            "icon": "menu-icon tf-icons ti ti-shield-lock",
+            "slug": "admin-security",
+            "submenu": [
+                {
+                    "url": "admin/two-factor",
+                    "name": "Zwei-Faktor-Authentifizierung",
+                    "slug": "admin.two-factor",
+                    "icon": "ti ti-shield-check"
+                }
+            ]
+        },
+        {
+            "name": "System & Communication",
+            "icon": "menu-icon tf-icons ti ti-settings-2",
+            "slug": "admin-system",
+            "submenu": [
+                {
+                    "url": "admin/countries",
+                    "name": "Länder-Verwaltung",
+                    "slug": "admin-countries",
+                    "icon": "ti ti-world"
+                },
+                {
+                    "url": "admin/forms",
+                    "name": "Formulare",
+                    "slug": "admin-forms",
+                    "icon": "ti ti-forms"
+                },
+                {
+                    "url": "admin/email-templates",
+                    "name": "E-Mail Templates",
+                    "slug": "admin-email-templates",
+                    "icon": "ti ti-mail"
+                },
+                {
+                    "url": "admin/badwords",
+                    "name": "Content Moderation",
+                    "slug": "admin-badwords",
+                    "icon": "ti ti-shield-check"
+                },
+                {
+                    "url": "admin/openings",
+                    "name": "Öffnungszeiten",
+                    "slug": "admin-openings",
+                    "icon": "ti ti-clock"
+                }
+            ]
+        },
+        {
+            "name": "Financial Management",
+            "icon": "menu-icon tf-icons ti ti-currency-euro",
+            "slug": "admin-financial",
+            "submenu": [
+                {
+                    "url": "admin/bills",
+                    "name": "Rechnungen",
+                    "slug": "admin-bills",
+                    "icon": "ti ti-receipt"
+                },
+                {
+                    "url": "admin/vendor-earnings",
+                    "name": "Vendor Earnings",
+                    "slug": "admin-vendor-earnings",
+                    "icon": "ti ti-chart-line"
+                },
+                {
+                    "url": "admin/credit-grants",
+                    "name": "Credit Vergaben",
+                    "slug": "admin-credit-grants",
+                    "icon": "ti ti-gift"
+                },
+                {
+                    "url": "admin/payment-providers",
+                    "name": "Payment Provider API",
+                    "slug": "admin-payment-providers",
+                    "icon": "ti ti-credit-card"
+                },
+                {
+                    "url": "admin/abonnementplaene",
+                    "name": "Abonnementpläne",
+                    "slug": "admin-subscription-plans",
+                    "icon": "ti ti-crown"
+                }
+            ]
+        },
+        {
+            "name": "Einstellungen",
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "admin-settings",
+            "submenu": [
+                {
+                    "url": "admin/settings",
+                    "name": "System Einstellungen",
+                    "slug": "admin-settings",
+                    "icon": "ti ti-settings-2"
+                },
+                {
+                    "url": "admin/profile",
+                    "name": "Admin Profil",
+                    "slug": "admin-profile",
+                    "icon": "ti ti-user-cog"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Inlando Vendor"
+        },
+        {
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons ti ti-dashboard",
+            "url": "/vendor/dashboard",
+            "slug": "vendor-dashboard"
+        },
+        {
+            "name": "Vermietungsobjekte",
+            "icon": "menu-icon tf-icons ti ti-package",
+            "slug": "vendor-rentals",
+            "submenu": [
+                {
+                    "url": "vendor/rentals",
+                    "name": "Objektliste",
+                    "slug": "vendor.rentals.index"
+                },
+                {
+                    "url": "vendor/rental",
+                    "name": "Neues Objekt",
+                    "slug": "vendor.rental"
+                }
+            ]
+        },
+        {
+            "name": "Standorte",
+            "icon": "menu-icon tf-icons ti ti-map-pin",
+            "slug": "vendor-locations",
+            "submenu": [
+                {
+                    "url": "vendor/standorte",
+                    "name": "Standortliste",
+                    "slug": "vendor-locations"
+                },
+                {
+                    "url": "vendor/oeffnungszeiten",
+                    "name": "Öffnungszeiten",
+                    "slug": "vendor-openings"
+                },
+                {
+                    "url": "vendor/notifications",
+                    "name": "Benachrichtigungen",
+                    "slug": "vendor-notifications"
+                },
+                {
+                    "url": "vendor/kontaktdaten",
+                    "name": "Kontaktdaten für Mieter",
+                    "slug": "vendor-contact-details"
+                }
+            ]
+        },
+        {
+            "name": "Statistiken & Berichte",
+            "icon": "menu-icon tf-icons ti ti-chart-bar",
+            "slug": "vendor-analytics",
+            "submenu": [
+                {
+                    "url": "vendor/statistiken",
+                    "name": "Statistiken",
+                    "slug": "vendor-statistics"
+                },
+                {
+                    "url": "vendor/bewertungen",
+                    "name": "Bewertungen & Rezensionen",
+                    "slug": "vendor-reviews"
+                }
+            ]
+        },
+        {
+            "name": "Kommunikation",
+            "icon": "menu-icon tf-icons ti ti-messages",
+            "slug": "vendor-communication",
+            "submenu": [
+                {
+                    "url": "vendor/bookings",
+                    "name": "Anfragen",
+                    "slug": "vendor-bookings"
+                },
+                {
+                    "url": "vendor/nachrichten",
+                    "name": "Nachrichten",
+                    "slug": "vendor-messages"
+                }
+            ]
+        },
+        {
+            "name": "Finanzen",
+            "icon": "menu-icon tf-icons ti ti-credit-card",
+            "slug": "vendor-finances",
+            "submenu": [
+                {
+                    "url": "vendor/rechnungen",
+                    "name": "Rechnungen",
+                    "slug": "vendor-bills"
+                },
+                {
+                    "url": "vendor/credits",
+                    "name": "Credits & Promotion",
+                    "slug": "vendor-credits"
+                },
+                {
+                    "url": "vendor/rental-pushes",
+                    "name": "Artikel-Push",
+                    "slug": "vendor-rental-pushes"
+                }
+            ]
+        },
+        {
+            "name": "Mitgliedschaft & Pakete",
+            "icon": "menu-icon tf-icons ti ti-credit-card",
+            "url": "vendor/membership",
+            "slug": "vendor-membership"
+        },
+        {
+            "name": "Einstellungen",
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "vendor-settings",
+            "submenu": [
+                {
+                    "url": "vendor/personal-data",
+                    "name": "Persönliche Daten",
+                    "slug": "vendor.personal-data"
+                },
+                {
+                    "url": "vendor/two-factor",
+                    "name": "Zwei-Faktor-Authentifizierung",
+                    "slug": "vendor.two-factor",
+                    "icon": "ti ti-shield-check"
+                }
+            ]
+        }
+    ]
+}

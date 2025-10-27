@@ -1,0 +1,83 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Inlando"
+        },
+        {
+            "name": "Entdecken",
+            "icon": "menu-icon tf-icons ti ti-search",
+            "slug": "explore",
+            "submenu": [
+                {
+                    "url": "suche",
+                    "name": "Suche",
+                    "slug": "search"
+                },
+                {
+                    "url": "kategorien/events",
+                    "name": "Events",
+                    "slug": "categories.events"
+                },
+                {
+                    "url": "kategorien/fahrzeuge",
+                    "name": "Fahrzeuge",
+                    "slug": "categories.fahrzeuge"
+                },
+                {
+                    "url": "kategorien/baumaschinen",
+                    "name": "Baumaschinen",
+                    "slug": "categories.baumaschinen"
+                },
+                {
+                    "url": "kategorien/garten",
+                    "name": "Garten & Outdoor",
+                    "slug": "categories.garten"
+                },
+                {
+                    "url": "kategorien/elektronik",
+                    "name": "Elektronik",
+                    "slug": "categories.elektronik"
+                },
+                {
+                    "url": "kategorien/sport",
+                    "name": "Sport & Freizeit",
+                    "slug": "categories.sport"
+                }
+            ]
+        },
+        {
+            "name": "Informationen",
+            "icon": "menu-icon tf-icons ti ti-info-circle",
+            "slug": "info",
+            "submenu": [
+                {
+                    "url": "wie-es-funktioniert",
+                    "name": "Wie es funktioniert",
+                    "slug": "how-it-works"
+                },
+                {
+                    "url": "ueber-uns",
+                    "name": "Über uns",
+                    "slug": "about"
+                },
+                {
+                    "url": "jetzt-vermieten",
+                    "name": "Jetzt vermieten",
+                    "slug": "rent-out"
+                }
+            ]
+        },
+        {
+            "name": "Anmelden",
+            "icon": "menu-icon tf-icons ti ti-login",
+            "url": "/login",
+            "slug": "login"
+        },
+        {
+            "name": "Registrieren",
+            "icon": "menu-icon tf-icons ti ti-user-plus",
+            "url": "/register",
+            "slug": "register"
+        }
+    ]
+}

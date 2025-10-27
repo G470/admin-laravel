@@ -1,11 +1,35 @@
-@import 'tailwindcss';
+/* INLANDO Logo Styles */
+.navbar-brand-logo, .footer-brand-logo {
+    max-height: 100%;
+    width: 100% !important;
+    object-fit: contain;
+    object-position: left center;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+.footer-brand-logo {
+    max-height: 50px;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Responsive logo adjustments */
+@media (max-width: 768px) {
+    .navbar-brand-logo {
+        max-height: 35px;
+    }
+    
+    .footer-brand-logo {
+        max-height: 40px;
+    }
+}
+
+/* Logo hover effects */
+.app-brand-link:hover .navbar-brand-logo,
+.app-brand-link:hover .footer-brand-logo {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure logo remains visible in dark mode */
+.dark-style .navbar-brand-logo,
+.dark-style .footer-brand-logo {
+    filter: brightness(1.1);
 }

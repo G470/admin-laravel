@@ -1,0 +1,119 @@
+/* Breadcrumb Component Styles */
+.breadcrumb-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--bs-secondary);
+}
+
+.breadcrumb-item.active {
+  color: var(--bs-primary);
+}
+
+.breadcrumb-item a {
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--bs-primary);
+  text-decoration: underline !important;
+}
+
+.breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  color: var(--bs-secondary);
+  font-size: 0.75rem;
+  margin: 0 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+
+  .breadcrumb-item {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .breadcrumb-item {
+    max-width: 80px;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.125rem;
+  }
+}
+
+/* Dark Mode Support */
+[data-bs-theme='dark'] .breadcrumb-item {
+  color: var(--bs-secondary);
+}
+
+[data-bs-theme='dark'] .breadcrumb-item.active {
+  color: var(--bs-primary);
+}
+
+/* Sub Categories List Styles */
+.sub-categories-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.sub-categories-list a {
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.sub-categories-list a:hover {
+  background-color: var(--bs-light);
+  border-color: var(--bs-primary);
+  transform: translateX(4px);
+}
+
+.sub-categories-list a:active {
+  transform: translateX(2px);
+}
+
+/* Badge styling for rental count */
+.sub-categories-list .badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sub-categories-list {
+    max-height: 200px;
+  }
+
+  .sub-categories-list a {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Dark mode support for sub categories */
+[data-bs-theme='dark'] .sub-categories-list a:hover {
+  background-color: var(--bs-dark);
+  border-color: var(--bs-primary);
+}

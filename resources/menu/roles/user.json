@@ -1,0 +1,32 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Inlando"
+        },
+        {
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons ti ti-smart-home",
+            "url": "user/dashboard",
+            "slug": "user.dashboard"
+        },
+        {
+            "name": "Profil",
+            "icon": "menu-icon tf-icons ti ti-user",
+            "slug": "user-profile",
+            "submenu": [
+                {
+                    "url": "user/profile",
+                    "name": "Persönliche Daten",
+                    "slug": "user.profile",
+                    "icon": "ti ti-user-circle"
+                },
+                {
+                    "url": "user/two-factor",
+                    "name": "Zwei-Faktor-Authentifizierung",
+                    "slug": "user.two-factor",
+                    "icon": "ti ti-shield-check"
+                }
+            ]
+        }
+    ]
+}

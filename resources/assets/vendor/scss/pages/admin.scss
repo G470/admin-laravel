@@ -1,0 +1,64 @@
+// Admin-specific styles
+// This file is for admin-only styles to maintain separation from front-end styles
+
+// Admin color variables and overrides can go here
+$admin-primary-color: #696cff;
+
+// Admin-specific layout styles
+.admin-header {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.admin-sidebar {
+  .menu-item {
+    &.active {
+      background-color: rgba($admin-primary-color, 0.1);
+      > .menu-link {
+        color: $admin-primary-color;
+      }
+    }
+  }
+}
+
+// Admin-specific page components
+.admin-dashboard-card {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Admin-specific utility classes
+.admin-action-btn {
+  min-width: 100px;
+}
+
+// Admin stats widgets
+.admin-stats-widget {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  .stats-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .stats-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .stats-label {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.875rem;
+  }
+}

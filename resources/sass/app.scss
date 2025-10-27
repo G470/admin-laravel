@@ -1,0 +1,25 @@
+/*
+ * Hauptdatei für CSS/SCSS Importe
+ */
+
+// Quill Editor
+@import '../assets/vendor/libs/quill/editor.scss';
+@import '../assets/vendor/libs/quill/typography.scss';
+@import '../assets/vendor/libs/quill/katex.scss';
+
+// Dropzone
+@import '../assets/vendor/libs/dropzone/dropzone.scss';
+
+// Select2 (Legacy - being replaced by Mary UI Choices)
+@import '../assets/vendor/libs/select2/select2.scss';
+
+// Mary UI Choices (Migration from Select2)
+@import '../assets/css/choices-custom.css';
+
+// Flatpickr
+@import '../assets/vendor/libs/flatpickr/flatpickr.scss';
+
+// Weitere Bibliotheken können hier importiert werden
+
+// Breadcrumb Component
+@import '../assets/css/breadcrumb-component.css';
