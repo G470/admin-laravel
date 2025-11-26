@@ -58,9 +58,8 @@ public/build
 _____backup
 
 # Docker
-Dockerfile*
+# Note: Don't exclude Dockerfile itself, only docker-compose files
 docker-compose*.yml
-.dockerignore
 
 # CI/CD
 .github
