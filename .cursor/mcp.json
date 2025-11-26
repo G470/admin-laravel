@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "senioangel-ai-mcp-server": {
+      "command": "node",
+      "args": [
+        "/Users/g470/SenioAngelAll/vscode-ollama-mcp/out/mcp-server.js"
+      ],
+      "env": {
+        "OLLAMA_HOST": "http://192.168.178.55:11434",
+        "OLLAMA_DEFAULT_MODEL": "qwen3-coder:latest",
+        "OLLAMA_TIMEOUT": "30000"
+      }
+    }
+  }
+}
