@@ -5,11 +5,11 @@ FROM node:20-alpine AS node-builder
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files (including package-lock.json for npm ci)
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production=false
+# Install dependencies (npm ci installs all dependencies including dev by default)
+RUN npm ci
 
 # Copy frontend resources
 COPY vite.config.js ./
@@ -29,6 +29,8 @@ COPY composer*.json ./
 COPY app ./app
 COPY database ./database
 COPY bootstrap ./bootstrap
+COPY artisan ./artisan
+COPY config ./config
 
 # Install dependencies (no dev dependencies for production)
 RUN composer install \
@@ -38,8 +40,8 @@ RUN composer install \
     --prefer-dist \
     --optimize-autoloader
 
-# Generate optimized autoloader
-RUN composer dump-autoload --optimize --classmap-authoritative --no-dev
+# Generate optimized autoloader (skip scripts to avoid artisan dependency)
+RUN composer dump-autoload --optimize --classmap-authoritative --no-dev --no-scripts
 
 # Stage 3: PHP-FPM - Production image
 FROM php:8.2-fpm-alpine AS production
