@@ -86,6 +86,13 @@ RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/memory.ini \
     && echo "post_max_size=100M" >> /usr/local/etc/php/conf.d/upload.ini \
     && echo "max_execution_time=300" > /usr/local/etc/php/conf.d/execution.ini
 
+# Configure PHP-FPM to listen on TCP port 9000
+RUN sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/;listen.owner = .*/listen.owner = www-data/' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/;listen.group = .*/listen.group = www-data/' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/user = .*/user = www-data/' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/group = .*/group = www-data/' /usr/local/etc/php-fpm.d/www.conf
+
 # Configure OPcache for production
 RUN echo "opcache.enable=1" > /usr/local/etc/php/conf.d/opcache.ini \
     && echo "opcache.memory_consumption=256" >> /usr/local/etc/php/conf.d/opcache.ini \
@@ -120,12 +127,16 @@ COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 # Configure Supervisor
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Copy and make healthcheck script executable
+COPY docker/healthcheck.sh /usr/local/bin/healthcheck.sh
+RUN chmod +x /usr/local/bin/healthcheck.sh
+
 # Expose port
 EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost/ || exit 1
+# Health check - check if services are running
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+    CMD /usr/local/bin/healthcheck.sh
 
 # Start supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
