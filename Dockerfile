@@ -131,12 +131,19 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/healthcheck.sh /usr/local/bin/healthcheck.sh
 RUN chmod +x /usr/local/bin/healthcheck.sh
 
+# Copy and make entrypoint script executable
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Expose port
 EXPOSE 80
 
 # Health check - check if services are running
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
     CMD /usr/local/bin/healthcheck.sh
+
+# Set entrypoint to ensure directories exist at runtime
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Start supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
