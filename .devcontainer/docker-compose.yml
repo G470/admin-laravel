@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: admin-laravel-dev
+    volumes:
+      - ..:/var/www/html:cached
+      - vscode-extensions:/home/vscode/.vscode-server/extensions
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    environment:
+      # Laravel Configuration
+      APP_NAME: "Admin Laravel"
+      APP_ENV: "local"
+      APP_KEY: ${APP_KEY:-base64:}
+      APP_DEBUG: "true"
+      APP_URL: "http://localhost:8000"
+      APP_TIMEZONE: "UTC"
+      APP_LOCALE: "de"
+      APP_FALLBACK_LOCALE: "en"
+      
+      # Database Configuration (matches Coolify setup)
+      DB_CONNECTION: "mariadb"
+      DB_HOST: "mariadb"
+      DB_PORT: "3306"
+      DB_DATABASE: "laravel"
+      DB_USERNAME: "laravel_user"
+      DB_PASSWORD: "laravel_password"
+      
+      # Cache Configuration
+      CACHE_STORE: "file"
+      CACHE_PREFIX: "laravel_cache_"
+      
+      # Session Configuration
+      SESSION_DRIVER: "file"
+      SESSION_LIFETIME: "120"
+      
+      # Queue Configuration
+      QUEUE_CONNECTION: "sync"
+      
+      # Mail Configuration (for development)
+      MAIL_MAILER: "log"
+      
+      # Container Type (for your ContainerServiceProvider)
+      CONTAINER_TYPE: "admin"
+    networks:
+      - laravel-network
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: admin-laravel-mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "root_password"
+      MYSQL_DATABASE: "laravel"
+      MYSQL_USER: "laravel_user"
+      MYSQL_PASSWORD: "laravel_password"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - laravel-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --max-allowed-packet=256M
+      --innodb-buffer-pool-size=512M
+
+networks:
+  laravel-network:
+    driver: bridge
+
+volumes:
+  mariadb-data:
+  vscode-extensions:
+

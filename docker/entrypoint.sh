@@ -1,8 +1,10 @@
 #!/bin/sh
 # Entrypoint script to ensure required directories exist and APP_KEY is set
 
-# Create storage directories if they don't exist
-mkdir -p /var/www/html/storage/framework/{sessions,views,cache}
+# Create storage directories if they don't exist (sh doesn't support brace expansion)
+mkdir -p /var/www/html/storage/framework/sessions
+mkdir -p /var/www/html/storage/framework/views
+mkdir -p /var/www/html/storage/framework/cache
 mkdir -p /var/www/html/storage/logs
 mkdir -p /var/www/html/bootstrap/cache
 

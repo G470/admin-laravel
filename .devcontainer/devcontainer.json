@@ -1,0 +1,83 @@
+{
+	"name": "Admin Laravel (Coolify Setup)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/var/www/html",
+	
+	// Features to add to the dev container
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+
+	// Forward ports (same as Coolify setup)
+	"forwardPorts": [8000, 5173, 3306],
+	"portsAttributes": {
+		"8000": {
+			"label": "Laravel Application",
+			"onAutoForward": "notify"
+		},
+		"5173": {
+			"label": "Vite Dev Server",
+			"onAutoForward": "notify"
+		},
+		"3306": {
+			"label": "MariaDB",
+			"onAutoForward": "silent"
+		}
+	},
+
+	// Run commands after container is created
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	
+	// Run commands after container starts
+	"postStartCommand": "bash .devcontainer/post-start.sh",
+
+	// Configure tool-specific properties
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"bmewburn.vscode-intelephense-client",
+				"amiralizadeh9480.laravel-extras",
+				"onecentlin.laravel-blade",
+				"ryannaddy.laravel-artisan",
+				"bradlc.vscode-tailwindcss",
+				"ms-azuretools.vscode-docker",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			],
+			"settings": {
+				"php.validate.executablePath": "/usr/local/bin/php",
+				"php.suggest.basic": false,
+				"files.associations": {
+					"*.blade.php": "blade"
+				},
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"[php]": {
+					"editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+				},
+				"[blade]": {
+					"editor.defaultFormatter": "onecentlin.laravel-blade"
+				}
+			}
+		}
+	},
+
+	// Connect as vscode user (non-root)
+	"remoteUser": "vscode",
+	
+	// Update remote user UID/GID to match host user
+	"remoteEnv": {
+		"APP_KEY": "${localEnv:APP_KEY}",
+		"DB_HOST": "mariadb",
+		"DB_PORT": "3306",
+		"DB_DATABASE": "laravel",
+		"DB_USERNAME": "laravel_user",
+		"DB_PASSWORD": "laravel_password"
+	},
+
+	// Mount additional volumes if needed
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	]
+}
