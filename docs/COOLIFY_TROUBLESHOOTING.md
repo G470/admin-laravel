@@ -1,5 +1,22 @@
 # Coolify Deployment Troubleshooting Guide
 
+## Error: "No application encryption key has been specified"
+
+**Quick Fix:**
+
+1. Generate an APP_KEY:
+   ```bash
+   php artisan key:generate --show
+   ```
+
+2. In Coolify → Your Application → Environment Variables:
+   - Add `APP_KEY` with the generated value (starts with `base64:`)
+   - Save and redeploy
+
+See the [APP_KEY section](#setting-app_key-in-coolify) below for detailed instructions.
+
+---
+
 ## Error: "failed to read dockerfile: open Dockerfile: no such file or directory"
 
 This error occurs when Coolify cannot find the Dockerfile in the build context. Follow these steps to resolve:
@@ -134,6 +151,7 @@ docker build -t laravel-app .
 **Environment Variables:**
 Make sure these are set in Coolify:
 ```env
+APP_KEY=base64:your-generated-key-here  # REQUIRED - See below for how to generate
 DB_CONNECTION=mariadb
 DB_HOST=mariadb  # or your database service name
 DB_PORT=3306
@@ -141,6 +159,33 @@ DB_DATABASE=laravel
 DB_USERNAME=laravel_user
 DB_PASSWORD=your_password
 ```
+
+### Setting APP_KEY in Coolify
+
+**Error:** `No application encryption key has been specified`
+
+**Solution:**
+
+1. **Generate an APP_KEY:**
+   ```bash
+   # On your local machine or in a temporary container
+   php artisan key:generate --show
+   ```
+   This will output something like: `base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+
+2. **Set in Coolify:**
+   - Go to your application in Coolify
+   - Navigate to **Environment Variables**
+   - Add a new variable:
+     - **Key:** `APP_KEY`
+     - **Value:** `base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` (the generated key)
+   - Save and redeploy
+
+3. **Important Notes:**
+   - The APP_KEY must start with `base64:`
+   - Never change the APP_KEY after data has been encrypted (sessions, cookies, etc.)
+   - Keep the APP_KEY secure and consistent across deployments
+   - If you lose the APP_KEY, all encrypted data will be lost
 
 ## Still Having Issues?
 
