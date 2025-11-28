@@ -17,6 +17,7 @@ class CategoriesPageController extends Controller
      */
     public function index()
     {
+
         // Load categories page settings
         $settings = Setting::where('group', 'categories_page')->get()->keyBy('key');
 

@@ -244,7 +244,7 @@
                     ]
                 },
                 {
-                    "url": "admin/kategorien",
+                    "url": "admin/categories",
                     "name": "Kategorien",
                     "slug": "categories",
                     "roles": [

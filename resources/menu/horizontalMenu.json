@@ -1206,7 +1206,7 @@
               "slug": "admin-subscription-plans"
             },
             {
-              "url": "admin/kategorien",
+              "url": "admin/categories",
               "name": "Kategorien",
               "slug": "categories"
             },

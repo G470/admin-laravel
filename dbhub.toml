@@ -1,0 +1,23 @@
+# dbhub.toml - Database configuration for Bytebase dbhub
+# Documentation: https://dbhub.ai/config/server-options
+
+# MariaDB connection using DSN format with SSL
+# Format: mariadb://[user]:[password]@[host]:[port]/[database]?[options]
+# SSL: sslmode=require (encrypted connection without certificate verification)
+
+[[sources]]
+id = "inlandoadmin"
+dsn = "mariadb://inlandoadmin:L%2Feq%28UhJpAk%28xG-C@inlando.de:9991/inlandoadmin?sslmode=require"
+
+# Alternative: Using individual parameters (if DSN doesn't work)
+# Uncomment below and comment out the DSN above if needed
+# [[sources]]
+# name = "inlandoadmin"
+# type = "mariadb"
+# host = "inlando.de"
+# port = 9991
+# database = "inlandoadmin"
+# username = "inlandoadmin"
+# password = "L/eq(UhJpAk(xG-C"
+# # SSL is handled via sslmode in DSN or can be set here
+# sslmode = "require"

@@ -33,11 +33,15 @@ class AuthenticatedSessionController extends Controller
 
     public function store(LoginRequest $request)
     {
+
+
         $request->authenticate();
         $request->session()->regenerate();
         
         $user = Auth::user();
         
+
+
         // Check if user has 2FA enabled
         if ($user->hasTwoFactorEnabled()) {
             // Clear 2FA verification from session
@@ -46,15 +50,15 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('two-factor.verify');
         }
         
-        // Redirect based on user role - checking both role-based and attribute-based permissions
-        if ($user->isAdmin() || $user->hasRole('admin')) {
-            return redirect()->intended(route('admin.dashboard'));
-        } elseif ($user->isVendor() || $user->hasRole('vendor')) {
-            return redirect()->intended(route('vendor-dashboard'));
-        } else {
-            // Regular user/customer
-            return redirect()->intended(route('user.dashboard'));
-        }
+        // Determine default dashboard based on user role
+        $defaultRedirect = match(true) {
+            $user->isAdmin() || $user->hasRole('admin') => route('admin.dashboard'),
+           // $user->isVendor() || $user->hasRole('vendor') => route('vendor-dashboard'),
+           // default => route('user.dashboard'),
+        };
+
+        
+        return redirect($defaultRedirect);
     }
 
     public function destroy(Request $request)

@@ -54,9 +54,10 @@ return [
       'prefix_indexes' => true,
       'strict' => true,
       'engine' => null,
-      'options' => extension_loaded('pdo_mysql') ? array_filter([
-        PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-      ]) : [],
+      'options' => extension_loaded('pdo_mysql') ? [
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => env('MYSQL_ATTR_SSL_VERIFY_SERVER_CERT', false),
+        PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', null),
+      ] : [],
     ],
 
     'mariadb' => [
@@ -74,9 +75,10 @@ return [
       'prefix_indexes' => true,
       'strict' => true,
       'engine' => null,
-      'options' => extension_loaded('pdo_mysql') ? array_filter([
-        PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-      ]) : [],
+      'options' => extension_loaded('pdo_mysql') ? [
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => env('MYSQL_ATTR_SSL_VERIFY_SERVER_CERT', false),
+        PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', null),
+      ] : [],
     ],
 
     'pgsql' => [
@@ -105,8 +107,6 @@ return [
       'charset' => env('DB_CHARSET', 'utf8'),
       'prefix' => '',
       'prefix_indexes' => true,
-      // 'encrypt' => env('DB_ENCRYPT', 'yes'),
-      // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
     ],
 
   ],
@@ -117,15 +117,12 @@ return [
   |--------------------------------------------------------------------------
   |
   | This table keeps track of all the migrations that have already run for
-  | your application. Using this information, we can determine which of
-  | the migrations on disk haven't actually been run on the database.
+  | your application. Using this information, we can determine which migrations
+  | still need to be executed.
   |
   */
 
-  'migrations' => [
-    'table' => 'migrations',
-    'update_date_on_publish' => true,
-  ],
+  'migrations' => 'migrations',
 
   /*
   |--------------------------------------------------------------------------
@@ -134,7 +131,7 @@ return [
   |
   | Redis is an open source, fast, and advanced key-value store that also
   | provides a richer body of commands than a typical key-value system
-  | such as Memcached. You may define your connection settings here.
+  | such as APC or Memcached. Laravel makes it easy to dig right in.
   |
   */
 
@@ -144,7 +141,7 @@ return [
 
     'options' => [
       'cluster' => env('REDIS_CLUSTER', 'redis'),
-      'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
+      'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
     ],
 
     'default' => [

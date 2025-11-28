@@ -10,6 +10,16 @@
         "OLLAMA_DEFAULT_MODEL": "qwen3-coder:latest",
         "OLLAMA_TIMEOUT": "30000"
       }
+    },
+    "dbhub": {
+      "command": "npx",
+      "args": [
+        "@bytebase/dbhub",
+        "--transport",
+        "stdio",
+        "--config",
+        "./dbhub.toml"
+      ]
     }
   }
 }

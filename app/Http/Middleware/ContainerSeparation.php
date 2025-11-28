@@ -13,26 +13,7 @@ class ContainerSeparation
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $containerType = env('CONTAINER_TYPE', 'frontend');
-        $path = $request->getPathInfo();
 
-        // Admin container should only handle admin routes
-        if ($containerType === 'admin') {
-            if (!$this->isAdminRoute($path)) {
-                // Redirect non-admin requests to frontend container
-                $frontendUrl = env('FRONTEND_APP_URL', 'http://localhost:8000');
-                return redirect($frontendUrl . $path);
-            }
-        }
-
-        // Frontend container should not handle admin routes
-        if ($containerType === 'frontend') {
-            if ($this->isAdminRoute($path)) {
-                // Redirect admin requests to admin container
-                $adminUrl = env('ADMIN_APP_URL', 'http://localhost:8080');
-                return redirect($adminUrl . $path);
-            }
-        }
 
         return $next($request);
     }

@@ -532,12 +532,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         return redirect()->route('admin.categories.index');
     });
 
-    // Städte SEO
-    Route::resource('cities-seo', App\Http\Controllers\Admin\CitySeoController::class);
-    // Redirect von deutscher URL zu englischer Resource-Route
-    Route::get('staedte-seo', function() {
-        return redirect()->route('admin.cities-seo.index');
-    });
 
     // Formulare
     Route::resource('forms', App\Http\Controllers\Admin\FormController::class);
@@ -840,12 +834,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         return redirect()->route('admin.categories.index');
     });
 
-    // Städte SEO
-    Route::resource('cities-seo', App\Http\Controllers\Admin\CitySeoController::class);
-    // Redirect von deutscher URL zu englischer Resource-Route
-    Route::get('staedte-seo', function() {
-        return redirect()->route('admin.cities-seo.index');
-    });
 
     // Formulare
     Route::resource('forms', App\Http\Controllers\Admin\FormController::class);

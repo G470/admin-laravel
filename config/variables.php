@@ -1,9 +1,9 @@
 <?php
 // Variables
 return [
-  "creatorName" => "Pixinvent",
-  "creatorUrl" => "https://pixinvent.com",
-  "templateName" => "Vuexy",
+  "creatorName" => "G470",
+  "creatorUrl" => "https://inlando.de",
+  "templateName" => "Inlando",
   "templateSuffix" => "Bootstrap Admin Template",
   "templateVersion" => "2.0.0",
   "templateFree" => false,

@@ -1,1 +1,1 @@
-import 'hammerjs/hammer.js';
+import 'hammerjs';

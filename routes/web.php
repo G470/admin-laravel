@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DatabaseTestController;
 // use App\Http\Controllers\Admin\RoleController; // Commented out - controller doesn't exist
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\CitySeoController;
@@ -62,22 +63,23 @@ use App\Http\Controllers\TwoFactorController;
 //======================================================================
 // INLANDO FRONTEND ROUTES
 //======================================================================
-
-Route::get('/', [CategoriesPageController::class, 'index'])->name('home');
-Route::get('/kategorien', [CategoriesPageController::class, 'index'])->name('categories.index');
-Route::get('/suche', [SearchController::class, 'index'])->name('search');
-Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
-Route::get('/rental/{id}', [RentalController::class, 'show'])->name('rentals.show');
-Route::get('/rental/{id}/request', [RentalController::class, 'request'])->name('rental.request');
-Route::post('/rental/{id}/request', [RentalController::class, 'store'])->name('rental-request-store');
-// Vendor profile route
-Route::get('/anbieter/{id}', [RentalController::class, 'vendorProfile'])->name('vendor.profile');
-// Favorites routes
-Route::get('/favoriten', [FavoritesController::class, 'index'])->name('favorites');
-Route::get('/guest-favoriten', [FavoritesController::class, 'index'])->name('guestuser.favorites');
-
-// Dynamic category routes - handles any category type from database
-Route::get('/kategorien/{type}', [CategoryController::class, 'categoryType'])->name('categories.type');
+// check admin permission
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [CategoriesPageController::class, 'index'])->name('home');
+    Route::get('/kategorien', [CategoriesPageController::class, 'index'])->name('categories.index');
+    Route::get('/suche', [SearchController::class, 'index'])->name('search');
+    Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
+    Route::get('/rental/{id}', [RentalController::class, 'show'])->name('rentals.show');
+    Route::get('/rental/{id}/request', [RentalController::class, 'request'])->name('rental.request');
+    Route::post('/rental/{id}/request', [RentalController::class, 'store'])->name('rental-request-store');
+});
+// end admin permission
+// redirect to login page if not admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('login');
+    })->name('home');
+});
 
 // Static pages
 Route::view('/wie-es-funktioniert', 'pages.how-it-works')->name('how-it-works');
@@ -122,6 +124,9 @@ Route::post('/test-dynamic-fields-pending-clear', function () {
     \App\Helpers\DynamicRentalFields::clearPendingValues($categoryId);
     return response()->json(['success' => true]);
 })->name('test.dynamic.fields.pending.clear');
+
+// Database connection test endpoint
+Route::get('/test-db', [DatabaseTestController::class, 'test'])->name('test.db');
 
 Route::get('/test-dynamic-fields-integration', function () {
     return view('test-dynamic-fields-integration');

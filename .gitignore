@@ -1,24 +1,102 @@
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
+# Laravel
 /.phpunit.cache
-/.vscode
-/.zed
-/auth.json
+/.phpunit.result.cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/database/*.sqlite
+/database/*.sqlite-journal
+/database/*.db
 /node_modules
 /public/build
 /public/hot
 /public/storage
+!/public/storage/.gitignore
 /storage/*.key
+/storage/app/*
+!/storage/app/.gitignore
+!/storage/app/public
+/storage/debugbar/*
+!/storage/debugbar/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
 /storage/pail
 /vendor
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.*.local
+
+# IDE & Editor files
+/.fleet
+/.idea
+/.nova
+/.phpactor.json
+/.vscode
+/.zed
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Composer
+/auth.json
+/vendor
+composer.phar
+
+# NPM
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Build files
+/public/build
+/public/hot
+/public/mix-manifest.json
+
+# Testing
+/.phpunit.cache
+/.phpunit.result.cache
+/coverage
+.phpunit.result.cache
+
+# Homestead
 Homestead.json
 Homestead.yaml
-Thumbs.db
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
